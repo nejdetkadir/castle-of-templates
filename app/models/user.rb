@@ -13,6 +13,9 @@ class User < ApplicationRecord
   # validations
   validates_presence_of :fullname
 
+  # associations
+  has_many :templates
+
   def as_json(*_args)
     {
       id: id,

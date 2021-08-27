@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :explore]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_template, only: [:edit, :update, :show, :destroy]
 
   include ApplicationHelper
@@ -20,6 +20,10 @@ class TemplatesController < ApplicationController
   end
 
   def show
+  end
+  
+  def index
+    @templates = current_user.templates
   end
 
   def edit
@@ -42,7 +46,7 @@ class TemplatesController < ApplicationController
     if check_current_user(@template.user)
       @template.destroy
       flash[:notice] = "Template was successfully destroyed."
-      redirect_to root_path 
+      redirect_to templates_path 
     else
       redirect_to not_found_path
     end

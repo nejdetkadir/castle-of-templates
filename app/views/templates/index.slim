@@ -1,0 +1,33 @@
+.row
+  .col-md-12
+    .d-flex.justify-content-between.align-items-center
+        h2 My Templates
+        - if @templates.count > 0
+          = link_to "New Template", new_template_path, class: "btn btn-outline-success btn-sm"
+    - if @templates.count > 0
+      .table-responsive
+        table.table.table-hover
+          thead
+            tr
+              th(scope='col') Name
+              th(scope='col') Visibility
+              th(scope='col') Downloads
+          tbody
+            - @templates.each do |template|
+              tr
+                th(scope='row')
+                  = link_to template_path(template), class: "text-decoration-none text-dark"
+                    img.pe-2(src="#{template.icon_url(:thumb)}")
+                    | #{template.name}
+                td
+                  - if template.public
+                    span.badge.bg-success Public
+                  - else
+                    span.badge.bg-danger private
+                td #{template.id}
+    - else
+      .p-5.mt-4.bg-white.shadow-lg.rounded-3
+        .container-fluid.py-5
+          h1.display-5.fw-bold Castle of Templates
+          p.col-md-8.fs-4 Create your first Template
+          = link_to "New Template", new_template_path, class: "btn btn-outline-success btn-sm"
