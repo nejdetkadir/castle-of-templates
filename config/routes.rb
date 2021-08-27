@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :templates
   get 'templates/explore', to: 'templates#explore', as: :template_explore
 
+  get 'script/:id', to: 'script#show', as: :show_script
+
   # errors
   get '/404', to: 'errors#not_found', as: :not_found
   get '/422', to: 'errors#unacceptable', as: :unacceptable
