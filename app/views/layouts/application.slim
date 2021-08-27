@@ -8,8 +8,32 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    p.notice
-      = notice
-    p.alert
-      = alert
     = yield
+    - if alert
+      javascript:
+        Swal.fire({
+          icon: 'error',
+          title: '#{alert}',
+          timer: 1500,
+          showConfirmButton: false,
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
+    - if notice
+      javascript:
+        Swal.fire({
+          icon: 'success',
+          title: '#{notice}',
+          timer: 1500,
+          showConfirmButton: false,
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
