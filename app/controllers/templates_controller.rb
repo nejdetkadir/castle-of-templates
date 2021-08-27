@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :explore]
   before_action :set_template, only: [:edit, :update, :show, :destroy]
 
   include ApplicationHelper
@@ -24,6 +24,16 @@ class TemplatesController < ApplicationController
   
   def index
     @templates = current_user.templates
+  end
+  
+  def explore
+    if params[:sort].eql?("most_popular")
+      @templates = Template.active.order(created_at: :desc)
+    elsif params[:sort].eql?("neweset")
+      @templates = Template.active.order(created_at: :desc)
+    else
+      @templates = Template.active.order(created_at: :asc)
+    end
   end
 
   def edit

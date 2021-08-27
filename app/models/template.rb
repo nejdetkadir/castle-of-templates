@@ -9,4 +9,7 @@ class Template < ApplicationRecord
 
   # validations
   validates_presence_of [:name, :description, :script]
+
+  # scopes
+  scope :active, -> { where(public: true) }
 end
