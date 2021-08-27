@@ -1,0 +1,38 @@
+.row
+  .col-md-8
+    .d-flex.justify-content-between.align-items-center
+      h2 #{resource.new_record? ? "New Template" : "Edit #{resource.name}"}
+      = link_to "Cancel", templates_path, class: "text-decoration-none text-dark fw-bolder text-app-red w-hover"
+    .card
+      .card-body
+        = simple_form_for resource do |f|
+          .mb-3
+            = f.input :name, label_html: { class: "form-label" }, input_html: { class: "form-control" }, error_html: { class: "is-invalid" }
+          .mb-3
+            - if resource.new_record?
+              = image_tag "/images/fallback/template/thumb_default.png"
+            - else
+              = image_tag resource.icon_url(:thumb)
+            = f.input :icon, as: :file, label_html: { class: "form-label" }, input_html: { class: "form-control" }, error_html: { class: "is-invalid" }
+          .mb-3
+            = f.input :description, label_html: { class: "form-label" }, input_html: { class: "form-control" }, error_html: { class: "is-invalid" }
+          .mb-3
+            = f.input :instructions, as: :rich_text_area
+          .mb-3
+            = f.input :script, as: :text, label_html: { class: "form-label" }, input_html: { "data-controller": "editor" }
+          .mb-3.form-check.form-switch
+            = f.input :public, as: :boolean, label_html: { class: "form-check-label" }, input_html: { class: "form-check-input", checked: resource.public }
+          .mb-3
+          - if resource.new_record?
+            = f.button :submit, class: "btn btn-outline-success btn-sm"
+          - else
+            .d-flex.justify-content-between.align-items-center
+              = f.button :submit, class: "btn btn-outline-success"
+              = link_to "Delete", template_path(@template), class: "btn btn-outline-danger btn-sm", method: :delete
+  .col-md-4
+    h2 Commands
+    .list-group
+      a.list-group-item.list-group-item-action(href='#') The current link item
+      a.list-group-item.list-group-item-action(href='#') A second link item
+      a.list-group-item.list-group-item-action(href='#') A third link item
+      a.list-group-item.list-group-item-action(href='#') A fourth link item

@@ -4,6 +4,37 @@
 @import "sweetalert2/dist/sweetalert2.min.css";
 @import "animate.css/animate.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@200;300;400;500;600;700;800;900&display=swap");
+@import "trix/dist/trix.css";
+@import "codemirror/lib/codemirror.css";
+@import "codemirror/theme/moxer.css";
+@import "highlight.js/styles/vs2015.css";
+
+.trix-content {
+  .attachment-gallery {
+    > action-text-attachment,
+    > .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%;
+    }
+
+    &.attachment-gallery--2,
+    &.attachment-gallery--4 {
+      > action-text-attachment,
+      > .attachment {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  action-text-attachment {
+    .attachment {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+}
 
 html,
 body {
@@ -84,5 +115,19 @@ body {
         color: #dc3545 !important;
       }
     }
+  }
+}
+
+a.d-flex.align-items-center.text-decoration-none.text-dark{
+  &:hover{
+    color: #dc3545 !important;
+  }
+}
+
+.text-app-red{
+  color: #dc3545 !important;
+
+  &.w-hover:hover{
+    text-decoration: underline !important;
   }
 }

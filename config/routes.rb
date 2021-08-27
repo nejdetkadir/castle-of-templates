@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root  to:'welcome#index'
+  
+  # resources
+  resources :templates
 
   # errors
   get '/404', to: 'errors#not_found', as: :not_found
