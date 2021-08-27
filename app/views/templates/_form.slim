@@ -7,7 +7,7 @@
       .card-body
         = simple_form_for resource do |f|
           .mb-3
-            = f.input :name, label_html: { class: "form-label" }, input_html: { class: "form-control" }, error_html: { class: "is-invalid" }
+            = f.input :name
           .mb-3
             - if resource.new_record?
               = image_tag "/images/fallback/template/thumb_default.png"
@@ -27,7 +27,7 @@
             = f.button :submit, class: "btn btn-outline-success btn-sm"
           - else
             .d-flex.justify-content-between.align-items-center
-              = f.button :submit, class: "btn btn-outline-success"
+              = f.button :submit, class: "btn btn-outline-success btn-sm"
               = link_to "Delete", template_path(@template), class: "btn btn-outline-danger btn-sm", method: :delete
   .col-md-4
     h2 Commands

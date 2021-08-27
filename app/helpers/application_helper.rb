@@ -3,7 +3,7 @@ module ApplicationHelper
     "rails app:template LOCATION=#{Setting.host}/script/#{id}"
   end
 
-  def check_me(user)
+  def check_current_user(user)
     user_signed_in? && user.eql?(current_user)
   end
 end

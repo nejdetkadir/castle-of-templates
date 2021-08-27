@@ -2,7 +2,7 @@
   .container-fluid
     .d-flex.justify-content-between.align-items-center
       h1.fw-bold #{@template.name}
-      - if check_me(@template.user)
+      - if check_current_user(@template.user)
         = link_to "Edit", edit_template_path(@template), class: "btn btn-outline-danger btn-sm"
     small.text-secondary.mt-0 #{@template.description}
     .d-flex.align-items-center.justify-content-start.mt-3
@@ -25,5 +25,5 @@
     h3.fw-bold TEMPLATE SOURCE
     .text-app-red.mb-3 Review the code before running this template on your machine.
     pre
-      code
+      code.language-ruby
         = @template.script

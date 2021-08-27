@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   prepend_before_action :configure_recaptcha, if: :devise_controller?
 
   def configure_recaptcha
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
   def check_admin
     # Use with: before_action :check_admin
     redirect_back(fallback_location: root_path, alert: 'You are not authorized to access') unless current_user.admin?
+  end
+
+  def not_found
+    redirect_to not_found_path
   end
 
   private
