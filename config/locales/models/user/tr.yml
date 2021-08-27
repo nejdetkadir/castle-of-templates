@@ -6,6 +6,7 @@ tr:
       user: &user_attributes
         id: Id
         email: E-posta
+        fullname: Ad ve Soyad
         password: Parola
         password_confirmation: Parola Doğrulama
         role: Rol
@@ -25,4 +26,6 @@ tr:
             password:
               blank: boş bırakılamaz
             current_password:
+              blank: boş bırakılamaz
+            fullname:
               blank: boş bırakılamaz

@@ -10,9 +10,13 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
   enum provider: [:google, :github, :facebook, :normal]
 
+  # validations
+  validates_presence_of :fullname
+
   def as_json(*_args)
     {
       id: id,
+      fullname: fullname,
       email: email,
       role: role,
       provider: provider,
