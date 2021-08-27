@@ -13,3 +13,4 @@ Turbolinks.start();
 ActiveStorage.start();
 
 import "bootstrap/dist/js/bootstrap.bundle";
+global.Swal = require("sweetalert2");
