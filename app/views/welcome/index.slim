@@ -1,9 +1,30 @@
-h1 Welcome#index
-p Find me in app/views/welcome/index.slim
-- if user_signed_in?
-  pre #{current_user.as_json}
-  = link_to t('sessions.destroy.title'), destroy_user_session_path, method: :delete
-- else
-  = link_to t('sessions.new.title'), new_user_session_path
-  br
-  = link_to t('registrations.new.title'), new_user_registration_path
+.d-flex.justify-content-between.align-items-center.mt-4
+    h4 RailsBoilerplate
+    .btn-group
+      button.btn.btn-outline-danger.btn-sm.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false') Order By
+      ul.dropdown-menu
+        li
+          a.dropdown-item(href='#') Created At
+        li
+          a.dropdown-item(href='#') Most Popular
+        li
+          a.dropdown-item(href='#') Newest
+hr
+.row
+  - 6.times do |template|
+    .col-md-4.p-3
+      .card.template
+        = link_to root_path, class: "card-body text-decoration-none text-dark text-center"
+          img(src="https://railsbytes.com/assets/default-1f649a24c5d521726d1dce4d95ce7511eeab77a0b6e08c05ae83bd03b53b88b2.png")
+          h5.card-title.mt-3 Special title treatment
+          p.card-text With supporting text below as a natural lead-in to additional content.
+        .card-footer.text-muted.d-flex.justify-content-between.align-items-center
+          = link_to root_path, class: "d-flex align-items-center text-decoration-none text-muted"
+            = icon('fas', 'user')
+            .fw-light.ps-2 User 1
+          .d-flex.align-items-center
+            = icon('fas', 'chart-bar')
+            .fw-light.ps-2 Used #{template} times
+
+
+          

@@ -4,3 +4,85 @@
 @import "sweetalert2/dist/sweetalert2.min.css";
 @import "animate.css/animate.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@200;300;400;500;600;700;800;900&display=swap");
+
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-family: 'Azeret Mono', monospace;
+}
+
+body {
+  padding-top: 56px;
+}
+
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+  }
+  .offcanvas-collapse.open {
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-underline .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+  color: #6c757d;
+}
+
+.nav-underline .nav-link:hover {
+  color: #dc3545;
+}
+
+.nav-underline .active {
+  font-weight: 500;
+  color: #343a40;
+}
+
+.form-control{
+  &:focus{
+    border: none;
+    box-shadow: 0 0 0 0.1rem #dc3545 !important;
+  }
+}
+
+.card.template{
+  .card-footer{
+    .d-flex{
+      &:hover{
+        color: #dc3545 !important;
+      }
+    }
+  }
+}

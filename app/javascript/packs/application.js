@@ -14,3 +14,9 @@ ActiveStorage.start();
 
 import "bootstrap/dist/js/bootstrap.bundle";
 global.Swal = require("sweetalert2");
+
+document.addEventListener("turbolinks:load", function() {
+  document.querySelector("#navbarSideCollapse").addEventListener("click", function () {
+    document.querySelector(".offcanvas-collapse").classList.toggle("open")
+  })
+})
