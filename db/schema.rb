@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_151117) do
+ActiveRecord::Schema.define(version: 2021_08_28_010116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2021_08_27_151117) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "likeds", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "template_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["template_id"], name: "index_likeds_on_template_id"
+    t.index ["user_id"], name: "index_likeds_on_user_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -96,5 +105,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_151117) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "likeds", "templates"
+  add_foreign_key "likeds", "users"
   add_foreign_key "templates", "users"
 end

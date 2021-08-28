@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   # associations
   has_many :templates
+  has_many :likeds
 
   def as_json(*_args)
     {
