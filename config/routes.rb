@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   root  to:'templates#explore'
   
   # resources
-  resources :templates
-  get 'templates/explore', to: 'templates#explore', as: :template_explore
-
+  resources :templates do
+    post '/like', to: 'liked#change_action', as: :like
+  end
+  
+  get '/liked', to: 'liked#index', as: :liked_index
+  get '/explore', to: 'templates#explore', as: :template_explore
   get 'script/:id', to: 'script#show', as: :show_script
 
   # errors

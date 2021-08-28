@@ -2,8 +2,14 @@
   .container-fluid
     .d-flex.justify-content-between.align-items-center
       h1.fw-bold #{@template.name}
-      - if check_current_user(@template.user)
-        = link_to "Edit", edit_template_path(@template), class: "btn btn-outline-danger btn-sm"
+      .d-flex.justify-content-between.align-items-center
+        - if check_current_user(@template.user)
+          = link_to "Edit", edit_template_path(@template), class: "btn btn-outline-primary btn-sm me-2"
+        = link_to template_like_path(@template), class: "btn btn-sm btn-outline-danger", method: :post do
+          - if check_like(current_user, @template)
+            = icon('fas', 'thumbs-down')
+          - else
+            = icon('fas', 'thumbs-up')
     small.text-secondary.mt-0 #{@template.description}
     .d-flex.align-items-center.justify-content-start.mt-3
       .d-flex.align-items-center

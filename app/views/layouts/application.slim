@@ -19,9 +19,9 @@ html
               li.nav-item
                 = active_link_to 'My Templates', templates_path, active: :exclusive, class: "nav-link"
               li.nav-item
-                = active_link_to 'Liked', root_path, active: :exclusive, class: "nav-link"
+                = active_link_to 'Liked', liked_index_path, active: :exclusive, class: "nav-link"
             li.nav-item
-              = active_link_to 'Explore', root_path, active: :exclusive, class: "nav-link"
+              = active_link_to 'Explore', template_explore_path, active: :exclusive, class: "nav-link"
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Account
               ul.dropdown-menu

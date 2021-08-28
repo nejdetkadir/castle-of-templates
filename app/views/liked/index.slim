@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    .d-flex.justify-content-start.align-items-center
+      h2 Liked Templates
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th(scope='col') Name
+            th(scope='col') Downloads
+            th(scope='col') Unlike
+        tbody
+          - @likeds.each do |like|
+            tr
+              th(scope='row')
+                = link_to template_path(like.template), class: "text-decoration-none text-dark"
+                  img.pe-2(src="#{like.template.icon_url(:thumb)}")
+                  | #{like.template.name}
+              td #{like.template.download_count}
+              td
+                = link_to template_like_path(like.template), class: "btn btn-sm btn-outline-danger", method: :post do
+                  = icon('fas', 'thumbs-down', class: "pe-2")
+                  | Unlike
