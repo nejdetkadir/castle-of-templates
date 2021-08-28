@@ -6,7 +6,6 @@ class TemplatesController < ApplicationController
 
   def new
     @template = Template.new
-    @template_categories = TemplateCategory.where(public: :true)
   end
 
   def create
@@ -38,7 +37,6 @@ class TemplatesController < ApplicationController
   end
 
   def edit
-    @template_categories = TemplateCategory.where(public: :true)
   end
 
   def update
