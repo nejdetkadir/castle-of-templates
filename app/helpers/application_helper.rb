@@ -10,4 +10,8 @@ module ApplicationHelper
   def check_like(user, template)
     Liked.exists?(user: user, template: template)
   end
+
+  def template_categories
+    TemplateCategory.where(public: :true)
+  end
 end

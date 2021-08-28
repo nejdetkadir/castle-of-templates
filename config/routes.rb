@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :templates do
     post '/like', to: 'liked#change_action', as: :like
   end
+
+  resources :categories, only: [:show]
   
   get '/liked', to: 'liked#index', as: :liked_index
   get '/explore', to: 'templates#explore', as: :template_explore

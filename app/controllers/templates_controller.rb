@@ -29,7 +29,7 @@ class TemplatesController < ApplicationController
   
   def explore
     if params[:sort].eql?("most_popular")
-      @templates = Template.active.order(created_at: :desc)
+      @templates = Template.active.order(download_count: :desc)
     elsif params[:sort].eql?("neweset")
       @templates = Template.active.order(created_at: :desc)
     else

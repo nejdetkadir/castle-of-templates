@@ -44,8 +44,8 @@ html
             button.btn.btn-outline-danger.btn-sm(type='submit') Search
     .nav-scroller.shadow
       nav.nav.nav-underline
-        - 20.times do |category|
-          = active_link_to "Category #{category}", root_path, active: :exclusive, class: "nav-link"
+        - template_categories.each do |category|
+          = active_link_to category.name, category_path(category), active: :exclusive, class: "nav-link"
     main.container.mt-3.mb-5
       = yield
     - if alert
