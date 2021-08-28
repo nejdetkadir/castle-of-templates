@@ -1,4 +1,7 @@
 class Template < ApplicationRecord
+  
+  # searchkick
+  searchkick
 
   # associations
   belongs_to :user

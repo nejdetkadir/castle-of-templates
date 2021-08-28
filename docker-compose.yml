@@ -21,5 +21,13 @@ services:
     volumes: 
       - .:/app
 
+  elasticsearch:
+    image: elasticsearch:7.4.2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment: 
+      - discovery.type=single-node
+
 volumes: 
   dbdata:

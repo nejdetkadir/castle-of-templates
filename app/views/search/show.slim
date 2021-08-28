@@ -1,0 +1,21 @@
+- if @result.any?
+  .d-flex.justify-content-between.align-items-center.mt-4
+    h4 Search: #{params[:q]}
+  hr
+  .row
+    - @result.each do |template|
+      = render "templates/template_small", template: template
+- else
+  javascript:
+    Swal.fire({
+      icon: 'info',
+      title: 'No data matching your search was found.',
+      timer: 1500,
+      showConfirmButton: false,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
