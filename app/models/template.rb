@@ -15,4 +15,8 @@ class Template < ApplicationRecord
 
   # scopes
   scope :active, -> { where(public: true) }
+
+  def shor_desc
+    return self.description.length > 90 ? "#{self.description[0..90]}..." : self.description 
+  end
 end

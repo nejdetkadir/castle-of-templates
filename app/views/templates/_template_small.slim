@@ -3,11 +3,11 @@
     = link_to template_path(template), class: "card-body text-decoration-none text-dark text-center"
       img(src="#{template.icon_url(:thumb)}")
       h5.card-title.mt-3 #{template.name}
-      p.card-text #{template.description}
+      p.card-text #{template.shor_desc}
     .card-footer.text-muted.d-flex.justify-content-between.align-items-center
       = link_to template_path(template), class: "d-flex align-items-center text-decoration-none text-muted"
         = icon('fas', 'user')
         .fw-light.ps-2 #{template.user.fullname.split(" ")[0]}
       .d-flex.align-items-center
         = icon('fas', 'chart-bar')
-        .fw-light.ps-2 Used #{template.id} times
+        .fw-light.ps-2 Used #{template.download_count} times
