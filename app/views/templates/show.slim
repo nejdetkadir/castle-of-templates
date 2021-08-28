@@ -1,7 +1,9 @@
 .p-4.bg-white.rounded-3.shadow-sm
   .container-fluid
     .d-flex.justify-content-between.align-items-center
-      h1.fw-bold #{@template.name}
+      div
+        h1.fw-bold #{@template.name}
+        h4.fw-light #{@template.template_category.name}
       .d-flex.justify-content-between.align-items-center
         - if check_current_user(@template.user)
           = link_to "Edit", edit_template_path(@template), class: "btn btn-outline-primary btn-sm me-2"

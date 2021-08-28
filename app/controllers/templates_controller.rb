@@ -6,6 +6,7 @@ class TemplatesController < ApplicationController
 
   def new
     @template = Template.new
+    @template_categories = TemplateCategory.where(public: :true)
   end
 
   def create
@@ -65,7 +66,7 @@ class TemplatesController < ApplicationController
   private
   
   def template_params
-    params.require(:template).permit(:name, :icon, :description, :instructions, :script, :public)
+    params.require(:template).permit(:name, :icon, :description, :instructions, :script, :public, :template_category_id)
   end
 
   def set_template
