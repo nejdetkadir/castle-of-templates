@@ -38,6 +38,7 @@ class TemplatesController < ApplicationController
   end
 
   def edit
+    @template_categories = TemplateCategory.where(public: :true)
   end
 
   def update
