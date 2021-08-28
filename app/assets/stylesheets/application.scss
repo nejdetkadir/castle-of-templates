@@ -1,13 +1,28 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *=require_self
+ *=require codemirror/lib/codemirror.css
+ *=require highlight.js/styles/vs2015.css
+ *=require codemirror/theme/moxer.css
+ *=require trix/dist/trix.css
+ *=require sweetalert2/dist/sweetalert2.min.css
+ *=require bootstrap/dist/css/bootstrap.min.css
+ *=require animate.css/animate.min.css
+ */
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "sweetalert2/dist/sweetalert2.min.css";
-@import "animate.css/animate.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@200;300;400;500;600;700;800;900&display=swap");
-@import "trix/dist/trix.css";
-@import "codemirror/lib/codemirror.css";
-@import "codemirror/theme/moxer.css";
-@import "highlight.js/styles/vs2015.css";
 
 .trix-content {
   .attachment-gallery {
