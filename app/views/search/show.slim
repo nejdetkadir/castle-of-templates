@@ -1,6 +1,6 @@
 - if @result.any?
   .d-flex.justify-content-between.align-items-center.mt-4
-    h4 Search: #{params[:q]}
+    h4 Search: #{params[:q][:name_cont]}
   hr
   .row
     - @result.each do |template|

@@ -1,7 +1,6 @@
 class Template < ApplicationRecord
   
-  # searchkick
-  searchkick
+  # searchkick (only production)
 
   # associations
   belongs_to :user

@@ -14,4 +14,8 @@ module ApplicationHelper
   def template_categories
     TemplateCategory.where(public: :true)
   end
+
+  def q
+    Template.ransack(params[:q])
+  end
 end

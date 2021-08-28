@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 16ce9110cbaee6682aca6e06ccb9d66a0c7a46c3
+  specs:
+    ransack (2.4.2)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
+
+GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: a40905f2ae20a1dcd153722640c9f1ee96e499bf
   branch: master
@@ -380,6 +389,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-settings-cached
+  ransack!
   recaptcha
   ruby-progressbar
   sass-rails (>= 6)

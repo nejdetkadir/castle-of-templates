@@ -2,6 +2,7 @@
 
 class SearchController < ApplicationController
   def show
-    @result = Template.search params[:q], fields: [:name, :description], where: {public: true}
+    @q = Template.ransack(params[:q])
+    @result = @q.result
   end
 end
