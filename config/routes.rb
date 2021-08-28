@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
-  get '/search/:q', to: "search#show", as: :search
+  get '/search', to: "search#show", as: :search
   
   get '/liked', to: 'liked#index', as: :liked_index
   get '/explore', to: 'templates#explore', as: :template_explore
