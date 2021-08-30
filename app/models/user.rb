@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:google_oauth2, :github, :facebook]
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
   # custom callbacks
   after_initialize :set_default_role, :if => :new_record?
@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   # enumerables
   enum role: [:user, :admin]
-  enum provider: [:google, :github, :facebook, :normal]
+  enum provider: [:google, :github, :normal]
 
   # validations
   validates_presence_of :fullname
