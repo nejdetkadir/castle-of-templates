@@ -10,7 +10,7 @@ html
   body.bg-light
     nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark
       .container-fluid
-        = link_to "Offcanvas navbar", root_path, class: "navbar-brand"
+        = link_to Setting.title.upcase, root_path, class: "navbar-brand"
         button#navbarSideCollapse.navbar-toggler.p-0.border-0(type='button')
           span.navbar-toggler-icon
         .navbar-collapse.offcanvas-collapse
